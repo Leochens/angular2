@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 //import { HEROES } from '../mock-heroes'
-import { HeroService } from '../hero.service'
+import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -15,7 +16,10 @@ export class HeroesComponent implements OnInit {
   // };
   selectedHero:Hero;
   heroes:Hero[];
-  constructor(private heroService:HeroService) { }
+  constructor(private heroService:HeroService,
+              private messageService:MessageService) {
+
+   }
 
   ngOnInit() {
     this.getHeroes();
@@ -24,10 +28,13 @@ export class HeroesComponent implements OnInit {
   //
   onSelect(hero:Hero):void{
     this.selectedHero=hero;
+    this.messageService.add("选择了"+hero.name);
   }
   getHeroes():void{
     this.heroService.getHeroes()
       .subscribe(heroes=>this.heroes=heroes);
+    this.messageService.add("获得英雄列表完毕");
+
       /**
        Observable.subscribe() 是关键的差异点。
       上一个版本把英雄的数组赋值给了该组件的 heroes 属性。 
