@@ -1,14 +1,13 @@
 
-<div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name">
-    </label>
-</div>
+
 
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+  <li *ngFor="let hero of heroes" 
+  (click)="onSelect(hero)"
+  [class.selected]="hero===selectedHero"><!--动态添加类-->
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>
 
+<app-hero-detail-component [hero]="selectedHero"></app-hero-detail-component>
