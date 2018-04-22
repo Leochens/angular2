@@ -14,7 +14,7 @@ export class HeroesComponent implements OnInit {
   //     id: 1,
   //     name:"WindStorm"
   // };
-  selectedHero:Hero;
+  //selectedHero:Hero;
   heroes:Hero[];
   constructor(private heroService:HeroService,
               private messageService:MessageService) {
@@ -26,10 +26,10 @@ export class HeroesComponent implements OnInit {
   }
 
   //
-  onSelect(hero:Hero):void{
-    this.selectedHero=hero;
-    this.messageService.add("选择了"+hero.name);
-  }
+  // onSelect(hero:Hero):void{
+  //   this.selectedHero=hero;
+  //   this.messageService.add("选择了"+hero.name);
+  // }
   getHeroes():void{
     this.heroService.getHeroes()
       .subscribe(heroes=>this.heroes=heroes);
