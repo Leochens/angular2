@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule,Routes} from '@angular/router'; 
 import { HeroesComponent }  from './heroes/heroes.component';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
 /*
 你通常不会在路由模块中声明组件，所以可以删除 @NgModule.declarations 并删除对 CommonModule 的引用。
  */
 const routes: Routes = [
-  { path: 'heroes', component: HeroesComponent }
+    {path:'',redirectTo:'/dashboard',pathMatch:'full'},
+  { path: 'heroes', component: HeroesComponent },
+  { path: 'dashboard', component: DashboardComponent },
+
 ];
 @NgModule({
   // imports: [
