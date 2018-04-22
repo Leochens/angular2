@@ -8,7 +8,10 @@ import { HeroService } from './hero.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +26,7 @@ import { DashboardComponent } from './dashboard/dashboard.component'
     AppRoutingModule
   ],
   providers: [
-  /*providers 数组会告诉 Angular 创建 
-  HeroService 的单一、共享的实例，�,
-  MessageService�且把它注入到任何请求注入它的类中。*/
+  
     HeroService,
     MessageService
     ],
